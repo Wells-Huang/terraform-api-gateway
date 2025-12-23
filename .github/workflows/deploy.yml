@@ -35,8 +35,8 @@ jobs:
 
       # 步驟 5: 將編譯好的檔案同步到 S3
       - name: Sync files to S3
-        run: |
-          aws s3 sync dist/ s3://${{ secrets.AWS_S3_BUCKET_NAME }} --delete
+
+        run: aws s3 sync dist/ s3://${{ secrets.S3_BUCKET_NAME }} --delete
         env:
           # 你需要再建立一個名為 AWS_S3_BUCKET_NAME 的 Secret
           # 或者直接將 bucket name 寫在這裡 (較不推薦)

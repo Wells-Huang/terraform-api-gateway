@@ -23,6 +23,12 @@ jobs:
       # 步驟 3: 安裝依賴並編譯專案
       - name: Install dependencies
         run: npm install
+      
+      # 步驟 3.5: 建立環境變數檔案
+      - name: Create production env file
+        run: |
+          echo "VUE_APP_API_BASE_URL=https://${{ secrets.CLOUDFRONT_DOMAIN_NAME }}" > .env.production
+      
       - name: Build project
         run: npm run build
 
